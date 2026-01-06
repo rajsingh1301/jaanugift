@@ -43,6 +43,6 @@ export const storyData: StoryItem[] = [
     description:
       "This is just the beginning of our story. I can't wait to create more beautiful memories with you, today and always.",
     
-    // image: "/images/future.jpg", // Uncomment and add your image!
+    image: "src/assets/usss5.png", // Uncomment and add your image!
   },
 ];
