@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { storyData } from "../data/storyData";
+import InfiniteScrollBackground from "../components/InfiniteScrollBackground";
 
 /**
  * STORY PAGE - Our Love Story Timeline
@@ -29,8 +30,10 @@ const Story = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-2xl w-full">
+    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden bg-transparent">
+      <InfiniteScrollBackground />
+
+      <div className="max-w-2xl w-full relative z-30">
         {/* Progress Indicator */}
         <div className="mb-8">
           <div className="flex justify-center gap-2 mb-2">

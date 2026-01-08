@@ -41,8 +41,7 @@ export const storyData: StoryItem[] = [
     id: 5,
     title: "Our Future Together",
     description:
-      "This is just the beginning of our story. I can't wait to create more beautiful memories with you, today and always.",
-    
+"     Jaanu , main chahta hu ki humara future bahut hi khubsurat ho , hum saath me bahut sari jagah ghoome , naye naye experiences le , aur apni zindagi ko khushiyo se bhar de , main hamesha tumhare sath rehna chahta hu aur tumhe khush rakhna chahta hu ❤️ aur ek mini vijaya bhi chahta hu 🧒🏻.",    
     image: "src/assets/usss5.png", // Uncomment and add your image!
   },
 ];

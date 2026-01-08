@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import CountdownTimer from "../components/CountdownTimer";
 import ConfettiEffect from "../components/ConfettiEffect";
+import InfiniteScrollBackground from "../components/InfiniteScrollBackground";
 
 /**
  * HOME PAGE - Birthday Countdown
@@ -28,11 +29,14 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden bg-transparent">
+      {/* Infinite Scrolling Background */}
+      <InfiniteScrollBackground />
+
       <ConfettiEffect trigger={showConfetti} />
 
       <motion.div
-        className="text-center max-w-2xl w-full"
+        className="text-center max-w-2xl w-full relative z-30"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

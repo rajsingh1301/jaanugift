@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { reasonsData } from "../data/reasonsData";
 import ConfettiEffect from "../components/ConfettiEffect";
+import InfiniteScrollBackground from "../components/InfiniteScrollBackground";
 
 /**
  * REASONS PAGE - Why I Love You
@@ -29,10 +30,11 @@ const Reasons = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden bg-transparent">
+      <InfiniteScrollBackground />
       <ConfettiEffect trigger={showConfetti} />
 
-      <div className="max-w-2xl w-full">
+      <div className="max-w-2xl w-full relative z-30">
         {/* Header */}
         <motion.h1
           className="text-3xl md:text-5xl font-bold text-pink-600 text-center mb-8"
@@ -97,9 +99,10 @@ const Reasons = () => {
                 Happy Birthday Jaanu! ❤️
               </h2>
 
-              <p className="text-lg md:text-xl text-gray-700 mb-8">
-                Thank you for being you. Here's to many more beautiful years
-                together!
+              <p className="text-lg md:text-xl text-gray-700 mb-8 mt-4 leading-relaxed">
+                Thank you for everything you are and all the joy you bring into
+                my life. Here's to many more beautiful moments together. I love
+                you so much jaanu! 💕
               </p>
 
               <motion.div
@@ -108,7 +111,7 @@ const Reasons = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
               >
-                Made with ❤️ by Your Love
+                Made with ❤️ by Your Bubu 👦🏻
               </motion.div>
             </motion.div>
           )}
