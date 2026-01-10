@@ -25,6 +25,8 @@ const Home = () => {
   };
 
   const handleOpenSurprise = () => {
+    // Trigger background music to play
+    window.dispatchEvent(new CustomEvent("startBackgroundMusic"));
     navigate("/story");
   };
 

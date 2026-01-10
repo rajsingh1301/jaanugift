@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
  */
 const MusicToggle = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [error, setError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -17,7 +18,35 @@ const MusicToggle = () => {
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
 
+    // Check if file loads
+    audioRef.current.addEventListener("error", () => {
+      console.error("Failed to load music file");
+      setError(true);
+    });
+
+    audioRef.current.addEventListener("canplay", () => {
+      console.log("Music file loaded successfully");
+    });
+
+    // Listen for custom event to start music
+    const handleStartMusic = () => {
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+            console.log("Background music started automatically");
+          })
+          .catch((err) => {
+            console.error("Auto-play failed:", err);
+          });
+      }
+    };
+
+    window.addEventListener("startBackgroundMusic", handleStartMusic);
+
     return () => {
+      window.removeEventListener("startBackgroundMusic", handleStartMusic);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -26,27 +55,50 @@ const MusicToggle = () => {
   }, []);
 
   const toggleMusic = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) {
+      console.error("Audio element not initialized");
+      return;
+    }
 
     if (isPlaying) {
       audioRef.current.pause();
+      setIsPlaying(false);
+      console.log("Music paused");
     } else {
-      audioRef.current.play().catch(() => {
-        console.log("Audio playback failed - user interaction may be required");
-      });
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          console.log("Music playing");
+        })
+        .catch((err) => {
+          console.error("Audio playback failed:", err);
+          setError(true);
+          alert(
+            "Unable to play music. Please check if the music.mp3 file exists in the public folder."
+          );
+        });
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
     <motion.button
       onClick={toggleMusic}
-      className="fixed bottom-6 right-6 bg-pink-400 hover:bg-pink-500 text-white rounded-full p-4 shadow-lg z-50 transition-colors"
+      className={`fixed bottom-6 right-6 ${
+        error ? "bg-red-400 hover:bg-red-500" : "bg-pink-400 hover:bg-pink-500"
+      } text-white rounded-full p-4 shadow-lg z-50 transition-colors`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 0.5 }}
+      title={
+        error
+          ? "Music file not found"
+          : isPlaying
+          ? "Pause music"
+          : "Play music"
+      }
     >
       {isPlaying ? (
         <svg

@@ -37,7 +37,7 @@ const Reasons = () => {
       <div className="max-w-2xl w-full relative z-30">
         {/* Header */}
         <motion.h1
-          className="text-3xl md:text-5xl font-bold text-pink-600 text-center mb-8"
+          className="text-3xl md:text-5xl font-bold text-pink-600 text-center mb-10 -mt-20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -46,7 +46,7 @@ const Reasons = () => {
 
         {/* Progress */}
         <div className="mb-8">
-          <div className="bg-gray-200 h-3 rounded-full overflow-hidden">
+          <div className="bg-transparent h-3 rounded-full overflow-hidden ">
             <motion.div
               className="bg-pink-500 h-full"
               initial={{ width: 0 }}
@@ -65,64 +65,13 @@ const Reasons = () => {
           </p>
         </div>
 
-        {/* Reason Card / Final Card */}
-        <AnimatePresence mode="wait">
-          {!isLastCard ? (
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
-              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-              exit={{ opacity: 0, scale: 0.8, rotateY: -90 }}
-              transition={{ duration: 0.6 }}
-              className="bg-linear-to-br from-pink-100 to-purple-100 rounded-3xl p-8 md:p-12 shadow-xl min-h-75 flex items-center justify-center"
-            >
-              <p className="text-xl md:text-3xl text-gray-800 text-center font-medium leading-relaxed">
-                {reasonsData[currentIndex].text}
-              </p>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="final"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-linear-to-br from-pink-200 to-purple-200 rounded-3xl p-8 md:p-12 shadow-xl text-center"
-            >
-              <motion.div
-                className="text-6xl md:text-8xl mb-6"
-                animate={{ rotate: [0, 10, -10, 10, 0] }}
-                transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1 }}
-              >
-                🎂
-              </motion.div>
-
-              <h2 className="text-3xl md:text-5xl font-bold text-pink-600 mb-6">
-                Happy Birthday Jaanu! ❤️
-              </h2>
-
-              <p className="text-lg md:text-xl text-gray-700 mb-8 mt-4 leading-relaxed">
-                Thank you for everything you are and all the joy you bring into
-                my life. Here's to many more beautiful moments together. I love
-                you so much jaanu! 💕
-              </p>
-
-              <motion.div
-                className="text-sm text-gray-600"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-              >
-                Made with ❤️ by Your Bubu 👦🏻
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Navigation Buttons */}
-        <div className="flex justify-between items-center mt-8">
+        {/* Card and Navigation Layout */}
+        <div className="flex items-center gap-4 md:gap-8">
+          {/* Previous Button */}
           <motion.button
             onClick={handlePrevious}
             disabled={currentIndex === 0}
-            className={`px-6 py-3 rounded-full font-semibold ${
+            className={`px-12 py-12 rounded-full font-semibold flex-shrink-0 text-5xl ${
               currentIndex === 0
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                 : "bg-pink-400 hover:bg-pink-500 text-white"
@@ -130,19 +79,77 @@ const Reasons = () => {
             whileHover={currentIndex > 0 ? { scale: 1.05 } : {}}
             whileTap={currentIndex > 0 ? { scale: 0.95 } : {}}
           >
-            ← Previous
+            ←
           </motion.button>
 
+          {/* Reason Card / Final Card */}
+          <AnimatePresence mode="wait">
+            {!isLastCard ? (
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                exit={{ opacity: 0, scale: 0.8, rotateY: -90 }}
+                transition={{ duration: 0.6 }}
+                className="bg-transparent rounded-3xl p-8 md:p-12 shadow-xl min-h-75 flex items-center justify-center flex-1"
+              >
+                <p className="text-xl md:text-3xl text-gray-800 text-center font-medium leading-relaxed">
+                  {reasonsData[currentIndex].text}
+                </p>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="final"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-linear-to-br from-pink-200 to-purple-200 rounded-3xl p-8 md:p-12 shadow-xl text-center flex-1"
+              >
+                <motion.div
+                  className="text-6xl md:text-8xl mb-6"
+                  animate={{ rotate: [0, 10, -10, 10, 0] }}
+                  transition={{
+                    duration: 0.5,
+                    repeat: Infinity,
+                    repeatDelay: 1,
+                  }}
+                >
+                  🎂
+                </motion.div>
+
+                <h2 className="text-3xl md:text-5xl font-bold text-pink-600 mb-6">
+                  Happy Birthday Jaanu! ❤️
+                </h2>
+
+                <p className="text-lg md:text-xl text-gray-700 mb-8 mt-4 leading-relaxed">
+                  Thank you for everything you are and all the joy you bring
+                  into my life. Here's to many more beautiful moments together.
+                  I love you so much jaanu! 💕
+                </p>
+
+                <motion.div
+                  className="text-sm text-gray-600"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                >
+                  Made with ❤️ by Your Bubu 👦🏻
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Next Button */}
           {!isLastCard && (
             <motion.button
               onClick={handleNext}
-              className="px-6 py-3 rounded-full font-semibold bg-pink-500 hover:bg-pink-600 text-white"
+              className="px-12 py-12 rounded-full font-semibold bg-pink-500 hover:bg-pink-600 text-white flex-shrink-0 text-5xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Next →
+              →
             </motion.button>
           )}
+          {isLastCard && <div className="w-16 flex-shrink-0"></div>}
         </div>
       </div>
     </div>
