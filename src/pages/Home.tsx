@@ -53,7 +53,8 @@ const Home = () => {
 
         {/* Main Heading */}
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-pink-600 mb-4"
+          className="text-5xl md:text-8xl font-bold mb-6 drop-shadow-sm"
+          style={{ fontFamily: "var(--font-display)", color: "var(--color-primary-dark)" }}
           initial={{ scale: 0.5 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 100 }}
@@ -63,22 +64,23 @@ const Home = () => {
 
         {/* Subtitle */}
         <motion.p
-          className="text-lg md:text-2xl text-gray-700 mb-12"
+          className="text-xl md:text-3xl font-light mb-12"
+          style={{ fontFamily: "var(--font-serif)", color: "var(--color-text-main)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Something special is waiting for you ❤️
+          Something special is waiting for you...
         </motion.p>
 
         {/* Lock/Unlock Button */}
         <motion.button
           onClick={handleOpenSurprise}
           disabled={!isUnlocked}
-          className={`px-8 py-4 rounded-full text-lg md:text-xl font-semibold shadow-lg transition-all ${
+          className={`px-10 py-5 rounded-full text-xl md:text-2xl font-semibold shadow-lg transition-all ${
             isUnlocked
-              ? "bg-pink-500 hover:bg-pink-600 text-white cursor-pointer transform hover:scale-105"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              ? "btn-primary"
+              : "bg-gray-200 text-gray-400 cursor-not-allowed"
           }`}
           whileHover={isUnlocked ? { scale: 1.05 } : {}}
           whileTap={isUnlocked ? { scale: 0.95 } : {}}
@@ -87,7 +89,7 @@ const Home = () => {
               ? {
                   boxShadow: [
                     "0px 0px 0px rgba(236, 72, 153, 0)",
-                    "0px 0px 20px rgba(236, 72, 153, 0.5)",
+                    "0px 0px 30px rgba(255, 143, 163, 0.6)",
                     "0px 0px 0px rgba(236, 72, 153, 0)",
                   ],
                 }

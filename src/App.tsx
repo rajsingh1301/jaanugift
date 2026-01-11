@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import Story from "./pages/Story";
 import Reasons from "./pages/Reasons";
+import LoveLetter from "./pages/LoveLetter";
 import MusicToggle from "./components/MusicToggle";
 
 /**
@@ -12,7 +13,7 @@ import MusicToggle from "./components/MusicToggle";
 const App = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen">
         {/* Background Music Toggle */}
         <MusicToggle />
 
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/story" element={<Story />} />
             <Route path="/reasons" element={<Reasons />} />
+            <Route path="/letter" element={<LoveLetter />} />
           </Routes>
         </AnimatePresence>
       </div>

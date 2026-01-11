@@ -68,12 +68,12 @@ const Story = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl"
+            className="glass rounded-3xl p-8 md:p-12"
           >
             {/* Image (if provided) */}
             {currentStory.image && (
               <motion.div
-                className="mb-6 rounded-2xl overflow-hidden"
+                className="mb-6 rounded-2xl overflow-hidden shadow-md"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
@@ -96,7 +96,8 @@ const Story = () => {
 
             {/* Title */}
             <motion.h2
-              className="text-2xl md:text-4xl font-bold text-pink-600 text-center mb-6"
+              className="text-3xl md:text-5xl font-bold text-center mb-6"
+              style={{ color: "var(--color-primary-dark)", fontFamily: "var(--font-display)" }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -106,7 +107,8 @@ const Story = () => {
 
             {/* Description */}
             <motion.p
-              className="text-base md:text-lg text-gray-700 text-center leading-relaxed"
+              className="text-base md:text-lg text-center leading-relaxed"
+              style={{ color: "var(--color-text-main)", fontFamily: "var(--font-body)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -117,14 +119,14 @@ const Story = () => {
         </AnimatePresence>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-between items-center mt-8">
+        <div className="flex justify-between items-center mt-8 gap-4">
           <motion.button
             onClick={handlePrevious}
             disabled={currentIndex === 0}
-            className={`px-6 py-3 rounded-full font-semibold ${
+            className={`px-6 py-3 rounded-full font-semibold transition-colors ${
               currentIndex === 0
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                : "bg-pink-400 hover:bg-pink-500 text-white"
+                : "bg-white text-pink-500 hover:bg-pink-50 shadow-sm"
             }`}
             whileHover={currentIndex > 0 ? { scale: 1.05 } : {}}
             whileTap={currentIndex > 0 ? { scale: 0.95 } : {}}
@@ -134,8 +136,8 @@ const Story = () => {
 
           <motion.button
             onClick={handleNext}
-            className="px-6 py-3 rounded-full font-semibold bg-pink-500 hover:bg-pink-600 text-white"
-            whileHover={{ scale: 1.05 }}
+            className="btn-primary px-8 py-3"
+            whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
             whileTap={{ scale: 0.95 }}
           >
             {isLastSlide ? "Continue →" : "Next →"}

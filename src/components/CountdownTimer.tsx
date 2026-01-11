@@ -53,7 +53,7 @@ const CountdownTimer = ({ targetDate, onComplete }: CountdownTimerProps) => {
 
   const TimeBlock = ({ value, label }: { value: number; label: string }) => (
     <motion.div
-      className="flex flex-col items-center bg-white/40 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg min-w-17.5 md:min-w-25"
+      className="flex flex-col items-center glass rounded-2xl p-4 md:p-6 min-w-[5rem] md:min-w-[7rem] mx-1 md:mx-2"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ type: "spring", stiffness: 200 }}
@@ -62,11 +62,12 @@ const CountdownTimer = ({ targetDate, onComplete }: CountdownTimerProps) => {
         key={value}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="text-3xl md:text-5xl font-bold text-pink-600"
+        className="text-4xl md:text-6xl font-bold"
+        style={{ color: "var(--color-primary-dark)", fontFamily: "var(--font-body)" }}
       >
         {value.toString().padStart(2, "0")}
       </motion.div>
-      <div className="text-xs md:text-sm text-gray-600 mt-2 font-medium">
+      <div className="text-xs md:text-sm mt-1 font-medium uppercase tracking-wider" style={{ color: "var(--color-text-light)" }}>
         {label}
       </div>
     </motion.div>

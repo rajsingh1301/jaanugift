@@ -27,19 +27,25 @@ const InfiniteScrollBackground = () => {
 
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden z-0">
-      {/* Pink/dark overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-50/70 via-purple-50/70 to-blue-50/70 z-10" />
+      {/* Soft romantic overlay for readability */}
+      <div 
+        className="absolute inset-0 z-10"
+        style={{ 
+          background: "linear-gradient(135deg, rgba(255, 240, 245, 0.6), rgba(255, 245, 230, 0.6))",
+          backdropFilter: "blur(2px)"
+        }}
+      />
 
       {/* Scrolling container */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full opacity-60">
         {/* First row - scrolling left */}
         <motion.div
-          className="absolute top-[10%] flex gap-6"
+          className="absolute top-[5%] flex gap-8"
           animate={{
             x: [0, -1920], // Adjust based on total width
           }}
           transition={{
-            duration: 40,
+            duration: 60,
             repeat: Infinity,
             ease: "linear",
           }}
@@ -48,12 +54,12 @@ const InfiniteScrollBackground = () => {
           {allCards.map((card, index) => (
             <div
               key={`row1-${index}`}
-              className="rounded-3xl shadow-xl overflow-hidden min-w-[240px] h-[180px] transform rotate-3"
+              className="rounded-2xl shadow-lg overflow-hidden min-w-[240px] h-[180px] transform rotate-3 border-4 border-white"
             >
               <img
                 src={card.image}
                 alt={card.alt}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           ))}
@@ -61,12 +67,12 @@ const InfiniteScrollBackground = () => {
 
         {/* Second row - scrolling right */}
         <motion.div
-          className="absolute top-[35%] flex gap-6"
+          className="absolute top-[30%] flex gap-8"
           animate={{
             x: [-1920, 0],
           }}
           transition={{
-            duration: 45,
+            duration: 70,
             repeat: Infinity,
             ease: "linear",
           }}
@@ -75,12 +81,12 @@ const InfiniteScrollBackground = () => {
           {allCards.map((card, index) => (
             <div
               key={`row2-${index}`}
-              className="rounded-3xl shadow-xl overflow-hidden min-w-[240px] h-[180px] transform -rotate-2"
+              className="rounded-2xl shadow-lg overflow-hidden min-w-[240px] h-[180px] transform -rotate-2 border-4 border-white"
             >
               <img
                 src={card.image}
                 alt={card.alt}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           ))}
@@ -88,12 +94,12 @@ const InfiniteScrollBackground = () => {
 
         {/* Third row - scrolling left */}
         <motion.div
-          className="absolute top-[60%] flex gap-6"
+          className="absolute top-[55%] flex gap-8"
           animate={{
             x: [0, -1920],
           }}
           transition={{
-            duration: 50,
+            duration: 80,
             repeat: Infinity,
             ease: "linear",
           }}
@@ -102,12 +108,12 @@ const InfiniteScrollBackground = () => {
           {allCards.map((card, index) => (
             <div
               key={`row3-${index}`}
-              className="rounded-3xl shadow-xl overflow-hidden min-w-[240px] h-[180px] transform rotate-1"
+              className="rounded-2xl shadow-lg overflow-hidden min-w-[240px] h-[180px] transform rotate-1 border-4 border-white"
             >
               <img
                 src={card.image}
                 alt={card.alt}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           ))}
@@ -115,12 +121,12 @@ const InfiniteScrollBackground = () => {
 
         {/* Fourth row - scrolling right (bottom) */}
         <motion.div
-          className="absolute top-[85%] flex gap-6"
+          className="absolute top-[80%] flex gap-8"
           animate={{
             x: [-1920, 0],
           }}
           transition={{
-            duration: 42,
+            duration: 65,
             repeat: Infinity,
             ease: "linear",
           }}
@@ -129,12 +135,12 @@ const InfiniteScrollBackground = () => {
           {allCards.map((card, index) => (
             <div
               key={`row4-${index}`}
-              className="rounded-3xl shadow-xl overflow-hidden min-w-[240px] h-[180px] transform -rotate-3"
+              className="rounded-2xl shadow-lg overflow-hidden min-w-[240px] h-[180px] transform -rotate-3 border-4 border-white"
             >
               <img
                 src={card.image}
                 alt={card.alt}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           ))}

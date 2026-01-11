@@ -85,8 +85,8 @@ const MusicToggle = () => {
     <motion.button
       onClick={toggleMusic}
       className={`fixed bottom-6 right-6 ${
-        error ? "bg-red-400 hover:bg-red-500" : "bg-pink-400 hover:bg-pink-500"
-      } text-white rounded-full p-4 shadow-lg z-50 transition-colors`}
+        error ? "bg-red-400 hover:bg-red-500 text-white" : "btn-primary"
+      } rounded-full p-4 shadow-lg z-50 transition-all flex items-center justify-center`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ scale: 0 }}
