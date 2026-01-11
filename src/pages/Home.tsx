@@ -17,7 +17,7 @@ const Home = () => {
   // Set your girlfriend's birthday here!
   // Format: new Date('YYYY-MM-DD HH:MM:SS')
   // For testing, you can set a date in the near future
-  const birthdayDate = new Date("2026-01-04 00:00:00");
+  const birthdayDate = new Date("2026-01-13 00:00:00");
 
   const handleCountdownComplete = () => {
     setIsUnlocked(true);
