@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden bg-transparent">
       {/* Infinite Scrolling Background */}
-      <InfiniteScrollBackground />
+      
 
       <ConfettiEffect trigger={showConfetti} />
 
@@ -77,22 +77,21 @@ const Home = () => {
         <motion.button
           onClick={handleOpenSurprise}
           disabled={!isUnlocked}
-          className={`px-10 py-5 rounded-full text-xl md:text-2xl font-semibold shadow-lg transition-all ${
-            isUnlocked
+          className={`px-10 py-5 rounded-full text-xl md:text-2xl font-semibold shadow-lg transition-all ${isUnlocked
               ? "btn-primary"
               : "bg-gray-200 text-gray-400 cursor-not-allowed"
-          }`}
+            }`}
           whileHover={isUnlocked ? { scale: 1.05 } : {}}
           whileTap={isUnlocked ? { scale: 0.95 } : {}}
           animate={
             isUnlocked
               ? {
-                  boxShadow: [
-                    "0px 0px 0px rgba(236, 72, 153, 0)",
-                    "0px 0px 30px rgba(255, 143, 163, 0.6)",
-                    "0px 0px 0px rgba(236, 72, 153, 0)",
-                  ],
-                }
+                boxShadow: [
+                  "0px 0px 0px rgba(236, 72, 153, 0)",
+                  "0px 0px 30px rgba(255, 143, 163, 0.6)",
+                  "0px 0px 0px rgba(236, 72, 153, 0)",
+                ],
+              }
               : {}
           }
           transition={{ duration: 1.5, repeat: Infinity }}

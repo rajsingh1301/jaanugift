@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 /**
  * Music Toggle Component
@@ -11,6 +12,7 @@ const MusicToggle = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [error, setError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     // Create audio element
@@ -81,12 +83,14 @@ const MusicToggle = () => {
     }
   };
 
+  // Don't show button on the countdown (Home) page
+  if (location.pathname === "/") return null;
+
   return (
     <motion.button
       onClick={toggleMusic}
-      className={`fixed bottom-6 right-6 ${
-        error ? "bg-red-400 hover:bg-red-500 text-white" : "btn-primary"
-      } rounded-full p-4 shadow-lg z-50 transition-all flex items-center justify-center`}
+      className={`fixed bottom-6 right-6 ${error ? "bg-red-400 hover:bg-red-500 text-white" : "btn-primary"
+        } rounded-full p-4 shadow-lg z-50 transition-all flex items-center justify-center`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ scale: 0 }}
@@ -96,8 +100,8 @@ const MusicToggle = () => {
         error
           ? "Music file not found"
           : isPlaying
-          ? "Pause music"
-          : "Play music"
+            ? "Pause music"
+            : "Play music"
       }
     >
       {isPlaying ? (
