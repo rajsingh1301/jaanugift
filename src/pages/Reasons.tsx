@@ -159,7 +159,7 @@ const Reasons = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                    <div className=" absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                     <div className="relative px-8 py-4 bg-white rounded-full leading-none flex items-center divide-x divide-gray-200 shadow-xl border border-pink-100">
                       <span className="flex items-center space-x-3">
                         <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">💌</span>
