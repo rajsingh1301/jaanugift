@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
 
+import photo1 from '../assets/scroll-images/photo1.jpg';
+import photo2 from '../assets/scroll-images/photo2.jpg';
+import photo3 from '../assets/scroll-images/photo3.jpg';
+import photo4 from '../assets/scroll-images/photo4.jpg';
+import photo5 from '../assets/scroll-images/photo5.jpg';
+import photo6 from '../assets/scroll-images/photo6.jpg';
+import photo7 from '../assets/scroll-images/photo7.jpg';
+import photo8 from '../assets/scroll-images/photo8.jpg';
+import photo9 from '../assets/scroll-images/photo9.jpg';
+import photo10 from '../assets/scroll-images/photo10.jpg';
+import photo11 from '../assets/scroll-images/photo11.jpg';
+
 /**
  * Infinite Scrolling Background Component
  * Creates a smooth horizontal scrolling effect with placeholder cards
@@ -8,17 +20,17 @@ import { motion } from "framer-motion";
 
 // Your beautiful photos together! 📸
 const imageCards = [
-  { id: 1, image: "/scroll-images/photo1.jpg", alt: "Our memory 1" },
-  { id: 2, image: "/scroll-images/photo2.jpg", alt: "Our memory 2" },
-  { id: 3, image: "/scroll-images/photo3.jpg", alt: "Our memory 3" },
-  { id: 4, image: "/scroll-images/photo4.jpg", alt: "Our memory 4" },
-  { id: 5, image: "/scroll-images/photo5.jpg", alt: "Our memory 5" },
-  { id: 6, image: "/scroll-images/photo6.jpg", alt: "Our memory 6" },
-  { id: 7, image: "/scroll-images/photo7.jpg", alt: "Our memory 7" },
-  { id: 8, image: "/scroll-images/photo8.jpg", alt: "Our memory 8" },
-  { id: 9, image: "/scroll-images/photo9.jpg", alt: "Our memory 9" },
-  { id: 10, image: "/scroll-images/photo10.jpg", alt: "Our memory 10" },
-  { id: 11, image: "/scroll-images/photo11.jpg", alt: "Our memory 11" },
+  { id: 1, image: photo1, alt: "Our memory 1" },
+  { id: 2, image: photo2, alt: "Our memory 2" },
+  { id: 3, image: photo3, alt: "Our memory 3" },
+  { id: 4, image: photo4, alt: "Our memory 4" },
+  { id: 5, image: photo5, alt: "Our memory 5" },
+  { id: 6, image: photo6, alt: "Our memory 6" },
+  { id: 7, image: photo7, alt: "Our memory 7" },
+  { id: 8, image: photo8, alt: "Our memory 8" },
+  { id: 9, image: photo9, alt: "Our memory 9" },
+  { id: 10, image: photo10, alt: "Our memory 10" },
+  { id: 11, image: photo11, alt: "Our memory 11" },
 ];
 
 const InfiniteScrollBackground = () => {
@@ -28,9 +40,9 @@ const InfiniteScrollBackground = () => {
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden z-0">
       {/* Soft romantic overlay for readability */}
-      <div 
+      <div
         className="absolute inset-0 z-10"
-        style={{ 
+        style={{
           background: "linear-gradient(135deg, rgba(255, 240, 245, 0.6), rgba(255, 245, 230, 0.6))",
           backdropFilter: "blur(2px)"
         }}
